@@ -18,4 +18,16 @@ public class AlumnoService {
     public List<Alumno> findAll() {
         return alumnoRepository.findAll();
     }
+
+    public Alumno findById(Integer id) {
+        return alumnoRepository.findById(id).orElse(null);
+    }
+
+    public Alumno save(Alumno alumno) {
+        return alumnoRepository.save(alumno);
+    }
+
+    public void delete(Alumno alumno) {
+        alumnoRepository.delete(alumno);
+    }
 }
