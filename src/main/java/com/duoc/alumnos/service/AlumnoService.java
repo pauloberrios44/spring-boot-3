@@ -15,7 +15,27 @@ public class AlumnoService {
     @Autowired
     public AlumnoRepository alumnoRepository;
 
+    // traer todos los alumnos registrados en la tabla
     public List<Alumno> findAll() {
         return alumnoRepository.findAll();
+    }
+
+    // traer un alumno consultado por el usuario
+    public Alumno findById(Integer id) {
+        return alumnoRepository.findById(id).orElse(null);
+    }
+
+    // metodo para borrar un alumno
+    public void delete(Integer id) {
+        alumnoRepository.deleteById(id);
+    }
+
+    // metodo para buscar por correo
+    public Alumno findByEmail(String email) {
+        return alumnoRepository.findByEmail(email);
+    }
+
+    public List<Alumno> findByNombres(String nombre) {
+        return alumnoRepository.findByNombres(nombre);
     }
 }
