@@ -62,4 +62,9 @@ public class AlumnoController {
         return ResponseEntity.status(200).body(alumnos);
     }
 
+    @PostMapping("/api/v1/alumno")
+    public ResponseEntity<?> guardarAlumno(@RequestBody Alumno alumno) {
+        Alumno alumnoGuardado = alumnoService.save(alumno);
+        return ResponseEntity.status(201).body(alumnoGuardado);
+    }
 }
